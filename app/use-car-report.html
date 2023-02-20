@@ -1,0 +1,92 @@
+<!-- Main content -->
+    <section class="content1">
+        
+
+
+      <!--CONTENT01-->
+      <div class="row">
+       
+      </div>
+      <div class="col-xs-12">
+          <div class="box">
+            
+
+            <!-- search start -->
+            <div class="callout callout-info" style="margin-bottom: 0px;">
+              <div class="row">
+                  <div class="col-sm-4">
+
+                    
+
+                      <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="startDatePicker">
+                      </div>
+
+
+                  </div>
+                  <div class="col-sm-3">
+
+                      
+
+                      <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="toDatePicker">
+                      </div>
+
+                  </div>
+
+                  <div class="col-sm-5">
+                    <button class="btn btn-primary" id='btnSearch'> แสดงข้อมูล</button>
+                  </div>
+               </div>
+           </div>
+           <!-- search -->
+
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="callout callout-success">
+                      รายงานสรุปข้อมูล รถที่ออกพื้นที่วันที่ <span id='startDateTxt'></span> ถึง <span id='endDateTxt'></span>
+                    </div>
+                  </div>
+              
+            </div>
+              <div class="row">
+                <div class="col-sm-12">
+                <table id="useCarReport" class="table">
+                <thead>
+                <tr>
+                  <th style="text-align: right;">#
+                  </th>
+                  <th>เลขทะเบียนรถ
+                  </th>
+                  <th style="text-align: right;">ครั้ง
+                  </th>
+                  <th style="text-align: right;">วัน
+                  </th>
+                  
+                </tr>
+                </thead>
+                <tbody id='useCarReportList'>
+                
+                </tbody>
+
+              </table></div></div>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <script type="text/javascript" src="./Controller/cUseCarReport.js"></script>
+
+
+
+

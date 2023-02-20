@@ -1,0 +1,105 @@
+<!-- Main content -->
+    <section class="content1">
+        
+
+
+      <!--CONTENT01-->
+      <div class="row">
+       
+      </div>
+      <div class="col-xs-12">
+          <div class="box">
+            
+
+            <!-- search start -->
+            <div class="callout callout-info" style="margin-bottom: 0px;">
+              <div class="row">
+                  <div class="col-sm-4">
+
+                      <!-- <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-7 control-label">รายงานช่วงวันที่</label>
+
+                        <div class="col-sm-5">
+                          <input id="startDatePicker" type="text" name="" class="form-control" value="">
+                        </div>
+                      </div>
+ -->
+                      <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="startDatePicker">
+                      </div>
+
+                  </div>
+                  <div class="col-sm-3">
+
+                      <!-- <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">ถึงวันที่</label>
+
+                        <div class="col-sm-8">
+                           <input id="toDatePicker" type="text" name="" class="form-control" value="">
+                        </div>
+                      </div> -->
+
+                      <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="toDatePicker">
+                      </div>
+
+                  </div>
+
+                  <div class="col-sm-5">
+                    <button id='btnSearch' class="btn btn-primary"> แสดงข้อมูล</button>
+                  </div>
+               </div>
+           </div>
+           <!-- search -->
+
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="callout callout-success">
+                      รายงานสรุปข้อมูลพนักงานขับรถ วันที่ <span id='startDateTxt'></span> ถึง <span id='endDateTxt'></span>
+                    </div>
+                    
+                  </div>
+              
+            </div>
+              <div class="row">
+                <div class="col-sm-12">
+                <table id="chauffeurReport" class="table">
+                <thead>
+                <tr role="row">
+                  <th style='text-align:right'>#
+                  </th>
+                  <th class="sorting">ชื่อพนักงานขับรถ
+                  </th>
+                  <th style='text-align:right'>ครั้ง
+                  </th>
+                  <th style='text-align:right'>วัน
+                  </th>
+                  
+                </tr>
+                </thead>
+                <tbody id="chauffeurReportList">
+                
+              </tbody>
+
+              </table>
+              </div>
+            </div>
+            </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+
+
+
+<script type="text/javascript" src="./Controller/cChauffeurReport.js"></script>

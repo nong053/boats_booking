@@ -1,0 +1,825 @@
+<section class="content1">
+<!--CONTENT01-->
+
+<div class="col-xs-12">
+
+    <div class="box">
+      <!-- 
+      <div class="callout callout-info">
+        <h4><i class="fa fa-book"></i> การจองรถ</h4>
+        สิทธิ์ผู้ใช้งานทั่วไปสามารถจองรถได้<br>
+        
+         <span  style='padding:7px;  color:white;'  class='bg-blue btn-sm'><i class='fa fa-circle'></i> Booking</span> สถานะการจองรถ<br>
+
+         <button style="" type="button" class="btn btn-success "><i class="fa fa-fw fa-angle-double-right"></i> ส่งให้ฝ่ายธรุการ</button> คลิกปุ่มนี้เมื่อต้องการส่งไปให้ฝ่ายธุรการมอบหมายรถและพลขับ<br>
+
+         <button style="" type="button" id="" class="btn btn-info "><i class="fa fa-fw fa-save"></i> บันทึก</button>
+       
+       
+      </div> -->
+
+      
+
+
+      <!-- search start -->
+            <div class="callout callout-info" style="margin: 0px;">
+              <div class="row">
+                  <div class="col-sm-3">
+
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-5 control-label" style="text-align: right; padding-top:5px;">เดือน</label>
+
+                        <div class="col-sm-7">
+                          <select class="form-control" id='param_month'>
+                            <option value="00">ทุกเดือน</option>
+                            <option value="01">มกราคม</option>
+                            <option value="02">กุมภาพันธ์</option>
+                            <option value="03">มีนาคม</option>
+                            <option value="04">เมษายน</option>
+                            <option value="05">พฤษภาคม</option>
+                            <option value="06">มิถุนายน</option>
+                            <option value="07">กรกฎาคม</option>
+                            <option value="08">สิงหาคม</option>
+                            <option value="09">กันยายน</option>
+                            <option value="10">ตุลาคม</option>
+                            <option value="11">พฤศจิกายน</option>
+                            <option value="12">ธันวาคม</option>
+
+                          </select>
+                        </div>
+                      </div>
+
+                  </div>
+                  <div class="col-sm-3">
+
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-5 control-label" style="text-align: right; padding-top:5px;">ปี</label>
+
+                        <div class="col-sm-7">
+                           <select class="form-control" id='param_year'>
+                           
+                          </select>
+                        </div>
+                      </div>
+
+                  </div>
+
+                  <div class="col-sm-5">
+                    <button id='btn_search' class="btn btn-primary"><i class="fa fa-search"></i> ค้นหา</button>
+                  </div>
+               </div>
+           </div>
+           <!-- search -->
+
+       <div class="box-header">
+        <h3 class="box-title"> 
+          <button class="btn btn-primary" data-toggle="modal" id='addBooking'><i class="fa fa-fw fa-plus"></i> จองเรือ</button>
+        </h3>
+      </div>
+
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="dataTables_wrapper form-inline dt-bootstrap">
+          <div class="row">
+            <div class="col-sm-12">
+            <table id="bookingDataList" class="table table-striped table-bordered">
+            <thead>
+            <tr role="row">
+              <th >#
+              </th>
+              <th>
+              </th>
+              <th>วันเวลา
+              </th>
+              <th>รายละเอียด
+              </th>
+             
+              <th style="text-align: right;">จัดการ
+              </th>
+            </tr>
+            </thead>
+            <tbody id='listDataBookingArea'>
+
+
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+
+
+
+<!-- from booking  management-->
+<div class="modal fade" id="BookingModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">จองเรือ</h4>
+        <small><font color="red">*</font> คือจำเป็นต้องกรอก</small>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Content here.-->
+
+
+                  <div style="display: none;" class="alertFromServer alert alert-warning alert-dismissible">
+                    <span class="alertFromServerTxt"></span>
+                  </div>
+
+                   <div style="display: none;" class="alertSuccessFromServer alert alert-success">
+                    <span class="alertSuccessFromServersTxt"></span>
+                  </div>
+
+       
+              <!-- Horizontal Form -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <!-- <h3 class="box-title">ฟอร์มข้อมูลการจองรถ</h3> -->
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="box-body">
+                    <div class="row">
+                      <div class="col-sm-6">
+
+                          <div class="form-group">
+                            <label for="fullname" class="col-sm-4 control-label"><font color="red">*</font>ชื่อ-สกุล</label>
+
+                            <div class="col-sm-8">
+                              <input  type="text" class="form-control" id="fullname_txt" value="">
+                            </div>
+                          </div>
+
+                      </div>
+                      <div class="col-sm-6">
+
+                          <div class="form-group">
+                            <label for="position" class="col-sm-3 control-label">เบอร์โทร</label>
+
+                            <div class="col-sm-9">
+                              <input  type="text" class="form-control" id="position_txt" value="">
+                            </div>
+                          </div>
+
+                      </div>
+                   </div>
+
+                   <div class="row">
+                      <div class="col-sm-12">
+
+                          <div class="form-group">
+                            <label for="purpose" class="col-sm-2 control-label"><font color="red">*</font>ที่พัก</label>
+
+                            <div class="col-sm-10">
+                              <textarea class="form-control" id="purpose_txt" placeholder="ที่พัก"></textarea>
+                            </div>
+                          </div>
+                      </div>
+                   </div>
+                   <!--
+                   <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="from1" class="col-sm-4 control-label"><font color="red">*</font>จาก</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="from1_txt" placeholder="จาก">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="to1" class="col-sm-3 control-label"><font color="red">*</font>ถึง</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="to1_txt" placeholder="ถึง">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="from2" class="col-sm-4 control-label">จาก</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="from2_txt" placeholder="จาก">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="to2" class="col-sm-3 control-label">ถึง</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="to2_txt" placeholder="ถึง">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="from3" class="col-sm-4 control-label">จาก</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="from3_txt" placeholder="จาก">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="to3" class="col-sm-3 control-label">ถึง</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="to3_txt" placeholder="ถึง">
+                              </div>
+                            </div>
+
+                        </div>
+                      -->
+                     </div>
+                     <!--
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="from4" class="col-sm-4 control-label">จาก</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="from4_txt" placeholder="จาก">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="to4" class="col-sm-3 control-label">ถึง</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="to4_txt" placeholder="ถึง">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+-->
+                  
+                    
+                      <!--
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="pick_up_at" class="col-sm-4 control-label"><font color="red">*</font>ให้นำรถไปรับที่</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="pick_up_at_txt" placeholder="ให้นำรถไปรับที่">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="near_place" class="col-sm-3 control-label">ใกล้กับ</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="near_place_txt" placeholder="ใกล้กับ">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+                     -->
+                     
+                      
+
+                    <!--
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="date_to" class="col-sm-4 control-label"><font color="red">*</font>กลับวันที่</label>
+
+                              <div class="col-sm-8">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" id="date_to_txt">
+                                  </div>
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="time_to" class="col-sm-3 control-label"><font color="red">*</font>เวลา</label>
+
+                              <div class="col-sm-9">
+                               <div class="input-group">
+                                  <input type="text" id='time_to_txt' class="form-control timepicker">
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                  </div>
+                                </div>
+                                
+
+                              </div>
+                            </div>
+
+                        </div>
+
+                        
+
+                     </div>
+                     -->
+
+
+                      <!-- <div class="row">
+                        <div class="col-sm-6">
+
+                            
+
+                            <div class="form-group">
+                              <label for="fuel_type" class="col-sm-4 control-label">ชนิดเชื้อเพลิง</label>
+
+                              <div class="col-sm-8 ">
+                                <select id='fuel_type_txt' class="form-control">
+                                   <option value="DIESEL">DIESEL</option>
+                                   <option value="GASOLINE 95">GASOLINE 95</option>
+                                   <option value="GASOHOL 91">GASOHOL 91</option>
+                                   <option value="GASOHOL 95">GASOHOL 95</option>
+                                   <option value="GASOHOL E20">CASOHOL E20</option>
+                                   <option value="GASOHOL E85">GASOHOL E85</option>
+                                  
+
+                                </select>
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="fuel_attach_file" class="col-sm-3 control-label">บัตรจ่ายน้ำมัน</label>
+
+                              <div class="col-sm-9">
+                                <input type="file" class="form-control" id="fuel_attach_file_txt">
+                              </div>
+                            </div>
+
+
+                        </div>
+                     </div> -->
+
+                     <!-- <div class="row">
+                        <div class="col-sm-6">
+
+                            
+                            <div class="form-group">
+                              <label for="fuel_lite" class="col-sm-4 control-label">จำนวน(ลิตร)</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="fuel_lite_txt" placeholder="จำนวน(ลิตร)">
+                              </div>
+                            </div>
+
+                        </div>
+                        
+                     </div> -->
+
+                  <!-- /.box-body -->
+
+                  <!-- 
+                  <div class="row">
+
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                            <label for="time_to" class="col-sm-2 control-label">เร่งด่วน</label>
+                            <div class="col-sm-10">   
+                                <input type="checkbox" name=""> 
+                            </div>
+                          </div>
+                     </div>
+                  </div> -->
+                  
+                  <div class="row">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <label for="time_to" class="col-sm-2 control-label">ไป-กลับ</label>
+                            <div class="col-sm-10">   
+                               <input type="checkbox" name="selfDrive" id="self_drive_license_flag" >
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+
+                        <div class="form-group">
+                          <label for="date_from" class="col-sm-4 control-label"><font color="red">*</font>เดินทางวันที่</label>
+
+                          <div class="col-sm-8">
+                            
+                              <div class="input-group date">
+                                <div class="input-group-addon">
+                                  <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="date_from_txt">
+                              </div>
+
+                          </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="form-group">
+                          <label for="time_from" class="col-sm-3 control-label"><font color="red">*</font>เวลา</label>
+
+                          <div class="col-sm-9">
+                            <div class="input-group">
+                              <input type="text" id='time_from_txt' class="form-control timepicker">
+
+                              <div class="input-group-addon">
+                                <i class="fa fa-clock-o"></i>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                    </div>
+                 </div>
+                  <div class="row" id="display_self_drive_check" style="display: none;">
+                        
+                          <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="date_to" class="col-sm-4 control-label"><font color="red">*</font>กลับวันที่</label>
+
+                              <div class="col-sm-8">
+                                <!-- <input type="text" class="form-control" value="" id="date_to_txt" placeholder="กลับวันที่"> -->
+                                  <div class="input-group date">
+                                    <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" id="date_to_txt">
+                                  </div>
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="time_to" class="col-sm-3 control-label"><font color="red">*</font>เวลา</label>
+
+                              <div class="col-sm-9">
+                                <!-- <input type="text" class="form-control" value="" id="time_to_txt" placeholder="เวลา"> -->
+                                <div class="input-group">
+                                  <input type="text" id='time_to_txt' class="form-control timepicker">
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                  </div>
+                                </div>
+                                
+
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+                  
+                     <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="number_of_people" class="col-sm-4 control-label"><font color="red">*</font>จำนวนผู้โดยสาร</label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" id="number_of_people_txt" placeholder="จำนวนผู้โดยสาร">
+                          </div>
+                        </div>
+                    </div>
+
+                      
+                 </div>
+
+                  <div class="row">
+                    
+
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="fuel_type" class="col-sm-4 control-label">ประเภทราคา</label>
+
+                        <div class="col-sm-8 ">
+                          <select id='fuel_type_txt' class="form-control">
+                            <option value="general_price">ราคาปกติ</option>
+                            <option value="special_price">ราคาคนเกาะ</option>
+                            <option value="babies_price">ราคาเด็ก</option>
+                            <option value="free_price">ฟรี</option>
+                          
+                          </select>
+                        </div>
+                      </div>
+                  </div>
+
+
+
+                    
+                    <div class="col-sm-6">
+
+                        <div class="form-group">
+                          <label for="baggage_weight" class="col-sm-3 control-label">ราคา</label>
+
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="baggage_weight_txt" placeholder="ราคา">
+                          </div>
+                        </div>
+                    </div>
+                    
+                 </div>
+                     
+                  <div class="row" style="display: ;">
+
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                            <label for="time_to" class="col-sm-2 control-label">หมายเหตุ</label>
+                            <div class="col-sm-10">   
+                                <textarea class="form-control" style="width: 100%;" id="assign_status_reason" placeholder="หมายเหตุ"></textarea>  
+                            </div>
+                          </div>
+                     </div>
+                  </div>
+                  
+                  <div class="box-footer " style="text-align: right;">
+                    <input type="hidden"  id="actionBooking" name="actionBooking" value="add">
+                    <input type="hidden" name="idBooking" id="idBooking" value="">
+
+                    <!--<button style="" type="button" id='btnSubmitAndSendToAssigner' class="btn btn-success "><i class="fa fa-fw fa-angle-double-right"></i> ส่งให้ฝ่ายธุรการ</button>-->
+                    <button style="" type="button" id='btnSubmit' class="btn btn-info "><i class="fa fa-fw fa-save"></i> บันทึก</button>
+                    <button  type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+
+                    
+                    
+                    
+                  </div>
+                  <!-- /.box-footer -->
+                </form>
+              </div>
+              <!-- /.box -->
+              <!-- general form elements disabled -->
+             
+
+        <!-- Content here.-->
+
+      </div>
+   
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+</div>
+<!-- from booking management-->
+
+
+
+
+<!-- from approve  management-->
+<div class="modal fade" id="ApprovedBookingModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">สรุปข้อมูลการจองรถ</h4>
+      </div>
+      <div class="modal-body summary-form">
+        
+        <!-- Content here.-->
+
+
+       
+         
+              <div style="display: none;" class="alertDangerFromServer alert alert-danger alert-dismissible">
+                  <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> -->
+                  <!-- <h4><i class="icon fa fa-warning"></i> Alert!</h4> -->
+                  <span class="alertDangerFromServerTxt"></span>
+                </div>
+
+
+                <!-- <div style="display: none;" class="callout callout-danger">
+                  <h4>Warning!</h4>
+                  <span class="alertDangerFromServerTxt"></span>
+                </div> -->
+       
+              <!-- Horizontal Form -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <!-- <h3 class="box-title">ฟอร์มข้อมูลการจองรถ</h3> -->
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="box-body">
+
+                    
+
+
+<section class="invoice">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="page-header">
+        <i class="fa fa-user"></i> ข้อมูลรถและคนขับ
+        
+      </h2>
+    </div>
+    <!-- /.col -->
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>รถ</th>
+          <th>พนักงานขับรถ</th>
+          <th>เลขที่ใบขับขี่</th>
+          <th>ผู้คุมรถ</th>
+          <!-- <th>ตำแหน่งผู้คุมรถ</th> -->
+          <!-- <th style="text-align: right;">จัดการ</th> -->
+        </tr>
+      </thead>
+      <tbody id='listChauffeurAndVehicleArea'>
+        
+      </tbody>
+    </table>
+ </section>
+
+
+ <!-- /.row -->
+     
+      <section class="invoice">
+        <h2 class="page-header">
+        <i class="fa fa-battery-three-quarters"></i> ข้อมูลเชื้อเพลิง
+        
+      </h2>
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th >#</th>
+              <th>รถ</th>
+              <th>ชนิดเชื้อเพลิง</th>
+               <th style="text-align: right;">จำนวน/ลิตร</th>
+              <th style="text-align: right;">ดาวน์โหลด</th>
+             
+            </tr>
+            </thead>
+            <tbody id='list_attach_file_area'>
+           
+
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+    </section>
+      <!-- /.row -->
+
+ <section class="invoice">
+      
+
+
+
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-car"></i> ข้อมูลการจองรถ
+            <small class="pull-right">วันที่ขอใช้รถ: <span id='createBookingDate'></span></small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+             <b>ชื่อผู้ขอใช้รถ:</b> <span id='fullname_txt_summary'></span><br>
+            <address>
+              <strong>วัตถุประสงค์:</strong><br>
+              <span id='purpose_txt_summary'></span>
+              
+             
+            </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+            <b>ตำแหน่ง:</b> <span id='position_txt_summary'></span><br>
+           
+            <b>จาก:</b> <span id='from_txt_summary'></span><br>
+            <b>ผู้โดยสาร:</b> <span id='number_of_people_txt_summary'></span> คน<br>
+            <b>ให้นำรถไปรับที่:</b><span id='near_place_txt_summary'></span><br>
+            <b>เดินทางวันที่:</b> <span id='date_from_txt_summary'></span><br>
+            <b>กลับวันที่:</b> <span id='date_to_txt_summary'></span><br>
+           
+           
+           
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          <!-- <b>Invoice #007612</b> --><br>
+          
+          <b>ถึง:</b> <span id='to_txt_summary'></span><br>
+          <b>น้ำหนักสิ่งของ:</b> <span id='baggage_weight_txt_summary'></span> กิโลกรัม<br>
+          <b>ใกล้กับ:</b><span id='at_the_place_txt_summary'></span><br>
+          <b>เวลา:</b> <span id='time_from_txt_summary'></span><br>
+          <b>เวลา:</b> <span id='time_to_txt_summary'></span><br>
+         
+          
+        </div>
+        <!-- /.col -->
+      </div>
+
+      
+
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+          <!-- <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a> -->
+          <!-- <button type="button" id='btnSubmit' class="btn btn-success pull-right"> บันทึก
+          </button> -->
+          <input type="hidden"  id="booking_id" >
+          <!-- <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+            <i class="fa fa-download"></i> ยกเลิก
+          </button> -->
+        </div>
+      </div>
+    </section>
+
+    
+             
+
+        <!-- Content here.-->
+
+      </div>
+   
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+    </section>
+             
+
+        <!-- Content here.-->
+
+      </div>
+   
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- from approve management-->
+
+
+
+
+
+
+
+<script src="js/jquery3.1.1.js"></script>
+<script type="text/javascript">
+ var jQuery_1_1_3 = $.noConflict(true);
+</script>
+<script type="text/javascript" src="./Controller/cBooking.js"></script>

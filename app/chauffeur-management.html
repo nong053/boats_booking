@@ -1,0 +1,135 @@
+<style type="text/css">
+    .widget-user .box-footer {
+        padding-top: 60px;
+    }
+  </style>
+<!-- Main content -->
+    <section class="content1">
+        
+
+
+      <!--CONTENT01-->
+
+      <div class="row">
+       
+      </div>
+      <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"> 
+                <button class="btn btn-primary" id='addChauffeur' data-toggle="modal" ><i class="fa fa-fw fa-plus"></i>เพิ่มคนขับรถ</button>
+              </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                  <div class="col-sm-6">
+                    
+                  </div>
+              <div class="col-sm-6">
+              </div>
+            </div>
+              <div class="row" id="listDataChauffeurArea">
+
+                
+                
+
+
+            </div>
+        
+          </div>
+         
+        </div>
+
+
+
+
+<!-- from chauffeur management-->
+<div class="modal fade" id="ChauffeurModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">ฟอร์มจัดการข้อมูลพนักงานขับรถ</h4>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Content here.-->
+        <div class="box box-info">
+       
+        <!-- /.box-header -->
+        <!-- form start -->
+       <form class="form-horizontal">
+          <div class="box-body">
+
+            <div class="form-group">
+              <label for="picture_path_txt1" class="col-sm-3 control-label">รูป</label>
+
+              <div class="col-sm-9">
+                <input type="file" class="form-control" id="picture_path_txt">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="driver_license_txt" class="col-sm-3 control-label">เลขที่ใบขับขี่</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="driver_license_txt" placeholder="เลขที่ใบขับขี่">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="chauffeur_name_txt" class="col-sm-3 control-label">ชื่อคนขับ</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="chauffeur_name_txt" placeholder="ชื่อคนขับ">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="chauffeur_tel_txt" class="col-sm-3 control-label">เบอร์โทร</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="chauffeur_tel_txt" placeholder="เบอร์โทร">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="active_txt" class="col-sm-3 control-label">สถานะ</label>
+
+              <div class="col-sm-9">
+                <input type="checkbox" class="" checked="checked" name="active_txt" id="active_txt" >
+
+                <!-- <select id="active_txt" class="form-control">
+                    <option value="1">พร้อม</option>
+                    <option value="0">ไม่พร้อม</option>
+                </select> -->
+              </div>
+            </div>
+            
+            
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="reset" class="btn btn-default pull-right" data-dismiss="modal" aria-label="Close" style="margin-left: 5px;">ยกเลิก</button>
+            <input type="hidden" name="actionChauffeur" id="actionChauffeur" value="add">
+            <input type="hidden" name="idChauffeur" id="idChauffeur" value="">
+            <button type="button" id='btnSubmit' class="btn btn-info pull-right">บันทึก</button>
+          </div>
+          <!-- /.box-footer -->
+        </form>
+      </div>
+        <!-- Content here.-->
+
+      </div>
+   
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- from chauffeur management-->
+<script src="js/jquery3.1.1.js"></script>
+<script type="text/javascript">
+ var jQuery_1_1_3 = $.noConflict(true);
+</script>
+<script type="text/javascript" src="./Controller/cChauffeur.js"></script>

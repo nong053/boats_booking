@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ขอใช้รถ | กรมเทคโนโลยีสารสนเทศและการสื่อสารทหารอากาศ</title>
+
+   <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="top-navigation" style="font-size: 16px;">
+
+    <div id="wrapper" >
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom white-bg">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <i class="fa fa-reorder"></i>
+                </button>
+
+                <a href="#" class="navbar-brand"> 
+                    
+                ระบบขอใช้รถยนต์ (ทสส.ทอ.)</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a aria-expanded="false" role="button" href="#"><span style="color:black;">ยินดีตอนรับ:</span> <span class ="fullname_txt"> </span> <span style="color:black;">ตำแหน่ง:</span> <span class="position_txt"></span></a>
+                    </li>
+                    <li class="">
+                        <a aria-expanded="false" role="button" href="./#/pages/home">
+                            ((<i class="fa fa-automobile"></i>จัดการข้อมูลจองรถ))
+                        </a>
+                    </li>
+                    <!-- <li class="dropdown">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Menu item <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Menu item <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Menu item <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Menu item <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                            <li><a href="">Menu item</a></li>
+                        </ul>
+                    </li> -->
+
+                </ul>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <a id="logOut" href="#">
+                            <i class="fa fa-sign-out"></i> ออกจากระบบ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        </div>
+        <div class="wrapper wrapper-content" style="padding: 0px;">
+            <div class="container">
+
+                
+                <div class="row">
+                    <img src="imgs/logo-ict2.png" width="100" style="text-align: center; display: inline;">
+                    <h1 style="display: inline;">ข้อมูลภารกิจการใช้รถยนต์(ทสส.ทอ.)ประจำ<span id='currentDateTxt'></span></h1>
+                </div>
+                <div class="row">
+
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                      <!-- small box -->
+                      <div class="small-box bg-green">
+                        <div class="inner">
+                          <h3 class="total_chauffeur">0</h3>
+
+                          <p>พลขับทั้งหมด</p>
+                        </div>
+                        <div class="icon">
+                          <i class="fa fa-users"></i>
+                        </div>
+                        <div class="small-box-footer">พลขับทั้งหมดในหน่วย ขส.ทสส.ทอ.<!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+                      </div>
+                    </div>
+
+                   
+
+
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                      <!-- small box -->
+                      <div class="small-box bg-green">
+                        <div class="inner">
+                          <h3 class="total_vehicle">0</h3>
+
+                          <p>รถทั้งหมด</p>
+                        </div>
+                        <div class="icon">
+                          <i class="fa fa-car"></i>
+                        </div>
+                        <div class="small-box-footer">รถทั้งหมด(ขส.ทสส.ทอ.) <!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+                      </div>
+                    </div>
+
+
+                     <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                      <!-- small box -->
+                      <div class="small-box bg-yellow">
+                        <div class="inner">
+                          <h3 class="chauffeur_use">0</h3>
+
+                          <p>พลขับพร้อมปฎิบัติภารกิจ</p>
+                        </div>
+                        <div class="icon">
+                          <i class="fa fa-users"></i>
+                        </div>
+                        <div class="small-box-footer">พลขับที่พร้อมปฎิบัติภารกิจ <!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+                      </div>
+                    </div>
+
+                    
+
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                      <!-- small box -->
+                      <div class="small-box bg-yellow">
+                        <div class="inner">
+                          <h3 class="vehicle_use">0</h3>
+
+                          <p>รถพร้อมปฎิบัติภารกิจ</p>
+                        </div>
+                        <div class="icon">
+                          <i class="fa fa-car"></i>
+                        </div>
+                        <div class="small-box-footer">รถที่พร้อมปฎิบัติภารกิจ(ขส.ทสส.ทอ.) <!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+                      </div>
+                    </div>
+                </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <font color="red">*</font> กรอกข้อมูลการจองรถยนต์ให้ถูกต้องครบถ้วน
+        </div>
+        <div class="panel-body"  style="padding: 30px;">
+
+             <div style="display: none;" class="alertFromServer alert alert-warning alert-dismissible">
+                <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> -->
+                <!-- <h4><i class="icon fa fa-warning"></i> Alert!</h4> -->
+                <span class="alertFromServerTxt"></span>
+              </div>
+               <div style="display: none;" class="alertSuccessFromServer alert alert-success">
+                <span class="alertSuccessFromServersTxt"></span>
+              </div>
+            <!-- open body panel start here.-->
+           
+            <div class="box box-info">
+                <div class="box-header with-border">
+                  <!-- <h3 class="box-title">ฟอร์มข้อมูลการจองรถ</h3> -->
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="box-body">
+                    <div class="row">
+                      <div class="col-sm-6">
+
+                          <div class="form-group">
+                            <label for="fullname" class="col-sm-4 control-label"><font color="red">*</font>ยศ-ชื่อ-สกุล</label>
+
+                            <div class="col-sm-8">
+                              <input disabled="" type="text" class="form-control fullname_txt" id="fullname_txt" value="">
+                            </div>
+                          </div>
+
+                      </div>
+                      <div class="col-sm-6">
+
+                          <div class="form-group">
+                            <label for="position" class="col-sm-3 control-label">ตำแหน่ง</label>
+
+                            <div class="col-sm-9">
+                              <input disabled="" type="text" class="form-control position_txt" id="position_txt"  value="">
+                            </div>
+                          </div>
+
+                      </div>
+                   </div>
+
+                   <div class="row">
+                      <div class="col-sm-12">
+
+                          <div class="form-group">
+                            <label for="purpose" class="col-sm-2 control-label"><font color="red">*</font>วัตถุประสงค์</label>
+
+                            <div class="col-sm-10">
+                              <textarea class="form-control" id="purpose_txt" placeholder="วัตถุประสงค์"></textarea>
+                            </div>
+                          </div>
+                      </div>
+                   </div>
+
+                   <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="from1" class="col-sm-4 control-label"><font color="red">*</font>จาก</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="from1_txt" placeholder="จาก">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="to1" class="col-sm-3 control-label"><font color="red">*</font>ถึง</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="to1_txt" placeholder="ถึง">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+                    <!--
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="from2" class="col-sm-4 control-label">จาก</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="from2_txt" placeholder="จาก">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="to2" class="col-sm-3 control-label">ถึง</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="to2_txt" placeholder="ถึง">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="from3" class="col-sm-4 control-label">จาก</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="from3_txt" placeholder="จาก">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="to3" class="col-sm-3 control-label">ถึง</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="to3_txt" placeholder="ถึง">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="from4" class="col-sm-4 control-label">จาก</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="from4_txt" placeholder="จาก">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="to4" class="col-sm-3 control-label">ถึง</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="to4_txt" placeholder="ถึง">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div> -->
+
+                  
+
+                      <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="number_of_people" class="col-sm-4 control-label"><font color="red">*</font>จำนวนผู้โดยสาร</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="number_of_people_txt" placeholder="จำนวนผู้โดยสาร">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="baggage_weight" class="col-sm-3 control-label">น้ำหนักสิ่งของ</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="baggage_weight_txt" placeholder="น้ำหนักสิ่งของ(กิโลกรัม)">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="pick_up_at" class="col-sm-4 control-label"><font color="red">*</font>นำรถไปรับที่</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="pick_up_at_txt" placeholder="ให้นำรถไปรับที่">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="near_place" class="col-sm-3 control-label">ใกล้กับ</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="near_place_txt" placeholder="ใกล้กับ">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+
+                     
+                      <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="date_from" class="col-sm-4 control-label"><font color="red">*</font>เดินทางวันที่</label>
+
+                              <div class="col-sm-8">
+                                <!-- <input type="text" class="form-control" value="" id="date_from_txt" placeholder="เดินทางวันที่"> -->
+
+                                  <div class="input-group date">
+                                    <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" id="date_from_txt">
+                                  </div>
+
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="time_from" class="col-sm-3 control-label"><font color="red">*</font>เวลา</label>
+
+                              <div class="col-sm-9">
+                                <!-- <input type="text" class="form-control" value="" id="time_from_txt" placeholder="เวลา"> -->
+                                <div class="input-group">
+                                  <input type="text" id="time_from_txt" class="form-control timepicker">
+
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="date_to" class="col-sm-4 control-label"><font color="red">*</font>กลับวันที่</label>
+
+                              <div class="col-sm-8">
+                                <!-- <input type="text" class="form-control" value="" id="date_to_txt" placeholder="กลับวันที่"> -->
+                                  <div class="input-group date">
+                                    <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" id="date_to_txt">
+                                  </div>
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="time_to" class="col-sm-3 control-label"><font color="red">*</font>เวลา</label>
+
+                              <div class="col-sm-9">
+                                <!-- <input type="text" class="form-control" value="" id="time_to_txt" placeholder="เวลา"> -->
+                                <div class="input-group">
+                                  <input type="text" id="time_to_txt" class="form-control timepicker">
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                  </div>
+                                </div>
+                                
+
+                              </div>
+                            </div>
+
+                        </div>
+
+                     </div>
+                     
+
+
+                      <!-- <div class="row">
+                        <div class="col-sm-6">
+
+                            
+
+                            <div class="form-group">
+                              <label for="fuel_type" class="col-sm-4 control-label">ชนิดเชื้อเพลิง</label>
+
+                              <div class="col-sm-8 ">
+                                <select id='fuel_type_txt' class="form-control">
+                                   <option value="DIESEL">DIESEL</option>
+                                   <option value="GASOLINE 95">GASOLINE 95</option>
+                                   <option value="GASOHOL 91">GASOHOL 91</option>
+                                   <option value="GASOHOL 95">GASOHOL 95</option>
+                                   <option value="GASOHOL E20">CASOHOL E20</option>
+                                   <option value="GASOHOL E85">GASOHOL E85</option>
+                                  
+
+                                </select>
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="fuel_attach_file" class="col-sm-3 control-label">บัตรจ่ายน้ำมัน</label>
+
+                              <div class="col-sm-9">
+                                <input type="file" class="form-control" id="fuel_attach_file_txt">
+                              </div>
+                            </div>
+
+
+                        </div>
+                     </div> -->
+
+                     <!-- <div class="row">
+                        <div class="col-sm-6">
+
+                            
+                            <div class="form-group">
+                              <label for="fuel_lite" class="col-sm-4 control-label">จำนวน(ลิตร)</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="fuel_lite_txt" placeholder="จำนวน(ลิตร)">
+                              </div>
+                            </div>
+
+                        </div>
+                        
+                     </div> -->
+
+                  <!-- /.box-body -->
+
+                  <!-- 
+                  <div class="row">
+
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                            <label for="time_to" class="col-sm-2 control-label">เร่งด่วน</label>
+                            <div class="col-sm-10">   
+                                <input type="checkbox" name=""> 
+                            </div>
+                          </div>
+                     </div>
+                  </div> -->
+
+                  <div class="row">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <label for="time_to" class="col-sm-2 control-label">มีพลขับอยู่แล้ว</label>
+                            <div class="col-sm-10">   
+                               <input type="checkbox" name="selfDrive" id="self_drive_license_flag" >
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                  <div class="row" id="display_self_drive_check" style="display: none;">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="self_drive_name_txt" class="col-sm-4 control-label"><font color="red">*</font>พลขับ</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="self_drive_name_txt" placeholder="ชื่อพลขับ">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="self_drive_license_txt" class="col-sm-3 control-label"><font color="red">*</font>เลขที่ใบขับขี่</label>
+
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="self_drive_license_txt" placeholder="เลขที่ใบขับขี่กลาโหม">
+                              </div>
+                            </div>
+
+                        </div>
+                     </div>
+
+
+                  <div class="row" style="display: ;">
+
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                            <label for="time_to" class="col-sm-2 control-label">หมายเหตุ</label>
+                            <div class="col-sm-10">   
+                                <textarea class="form-control" style="width: 100%;" id="assign_status_reason" placeholder="ข้อความส่งถึงฝ่ายธรุการ"></textarea>  
+                            </div>
+                          </div>
+                     </div>
+                  </div>
+
+                  <div class="box-footer " style="text-align: right;">
+                    <input type="hidden" id="actionBooking" name="actionBooking" value="add">
+                    <input type="hidden" name="idBooking" id="idBooking" value="">
+
+                    <button style="" type="button" id="btnSubmitAndSendToAssigner" class="btn btn-success "><i class="fa fa-fw fa-angle-double-right"></i> ส่งให้ฝ่ายธุรการ</button>
+                    <!-- <button style="" type="button" id="btnSubmit" class="btn btn-info "><i class="fa fa-fw fa-save"></i> บันทึก</button> -->
+                    <button type="button" class="btn btn-default" id="btnCancel">ยกเลิก</button>
+
+                    
+                    
+                    
+                  </div>
+                  <!-- /.box-footer -->
+                
+              </div></form>
+              <!-- /.box -->
+              <!-- general form elements disabled -->
+             
+
+        <!-- Content here.-->
+
+      </div>
+
+
+
+      <!-- close panel start here.-->
+                      
+                    </div>
+                </div>
+      <!-- close panel end here.-->
+
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="pull-left">
+                Copyright © 2020
+            </div>
+            <div class="pull-right">
+                <strong>Version</strong> 0.0.1
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+
+
+
+    
+
+</body>
+
+</html>
+
+
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+
+<script src="bower_components/raphael/raphael.min.js"></script>
+ <script src="bower_components/morris.js/morris.min.js"></script> 
+<!-- Sparkline -->
+<script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Slimscroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+<script src="dist/js/demo.js"></script>
+<script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
+
+<!-- time management-->
+
+<script src="js/moment-with-locales.js"></script>
+
+
+<!-- loadding  --> 
+<script src="js/jquery.mloading.js"></script>
+<!-- load angular fame work start-->
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.js"></script>
+
+
+<script src="Controller/cSetting.js"></script>
+<script src="Controller/cMain.js"></script>
+
+<script src="js/jquery3.1.1.js"></script>
+<script type="text/javascript">
+ var jQuery_1_1_3 = $.noConflict(true);
+</script>
+<script type="text/javascript" src="./Controller/cUserBooking.js"></script>
+

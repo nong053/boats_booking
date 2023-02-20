@@ -1,0 +1,135 @@
+
+<!-- Main content -->
+<section class="content1">
+        
+
+
+    <!--CONTENT01-->
+
+    <div class="row">
+     
+    </div>
+    <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+            <h3 class="box-title"> 
+              <button class="btn btn-primary" id="addAround" ><i class='fa fa-fw fa-plus'></i> เพิ่มรอบเรือ</button>
+            </h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+              <div class="row">
+                <div class="col-sm-6">
+                  
+                </div>
+            <div class="col-sm-6">
+              
+            </div>
+
+          </div>
+            <div class="row" id='listDataAroundArea'>
+
+             
+            
+             
+              </div>
+
+          </div>
+      
+        </div>
+       
+      </div>
+
+
+
+<!-- from car type management-->
+<div class="modal fade" id="AroundModal">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">รอบเรือ</h4>
+    </div>
+    <div class="modal-body">
+      
+      <!-- Content here.-->
+      <div class="box box-info">
+     
+      <!-- /.box-header -->
+      <!-- form start -->
+      
+        <div class="box-body">
+         <!--  <div class="form-group">
+            <label for="inputEmail3" class="col-sm-3 control-label">รหัส</label>
+
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="รหัส">
+            </div>
+          </div> -->
+
+          <div class="row">
+            <div class="col-sm-12" style="padding-bottom: 15px;">
+                <div class="form-group">
+                  <label for="around_name_txt" class="col-sm-4 control-label" style="text-align: right;"><font color="red">*</font>รอบ</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="around_name_txt" value="">
+                  </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="around_time_txt" class="col-sm-4 control-label" style="text-align: right;"><font color="red">*</font>เวลา</label>
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                        <input type="text" id="around_time_txt" class="form-control timepicker">
+    
+                        <div class="input-group-addon">
+                          <i class="fa fa-clock-o"></i>
+                        </div>
+                      </div>
+                      
+                  </div>
+                </div>
+
+                
+            </div>
+         </div>
+
+         
+            
+        
+
+          
+
+          
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+
+          <button type="reset" class="btn btn-default pull-right" data-dismiss="modal" aria-label="Close" style="margin-left: 5px;">ยกเลิก</button>
+          <button type="button" id="btnSubmit" class="btn btn-info pull-right" >บันทึก</button>
+          <input type="hidden" name="actionAround" id="actionAround" value="add">
+          <input type="hidden" name="idAround" id="idAround" value="">
+          
+        </div>
+        <!-- /.box-footer -->
+ 
+    </div>
+      <!-- Content here.-->
+
+    </div>
+ 
+  </div>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- from car type management-->
+
+
+<script type="text/javascript" src="./Controller/cAround.js"></script>
+
+

@@ -1,0 +1,160 @@
+<!-- Main content -->
+    <section class="content1">
+        
+
+
+      <!--CONTENT01-->
+
+      <div class="row">
+       
+      </div>
+      <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"> 
+                <button class="btn btn-primary"  id='addCar'><i class="fa fa-fw fa-plus"></i>เพิ่มเรือ</button>
+              </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                  <div class="col-sm-6">
+                    
+                  </div>
+              <div class="col-sm-6">
+                
+              </div>
+            </div>
+              <div class="row" id="listDataCarArea">
+
+              </div> 
+            </div>
+        
+          </div>
+         
+        </div>
+
+
+
+
+
+<!-- from car  management-->
+<div class="modal fade" id="CarModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">จัดการข้อมูลเรือ</h4>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Content here.-->
+        <div class="box box-info">
+       
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="picture_path" class="col-sm-3 control-label">รูป</label>
+
+              <div class="col-sm-9">
+                <input type="file" class="form-control" id="picture_path_txt">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="vehicle_type" class="col-sm-3 control-label">ประเภทเรือ</label>
+
+              <div class="col-sm-9">
+               
+                <select id='vehicle_type_txt' class="form-control">
+                   <!--  <option>รถตู้</option>
+                    <option>รถบัส</option> -->
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="vehicle_number" class="col-sm-3 control-label">ทะเบียนเรือ</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="vehicle_number_txt" placeholder="ทะเบียนเรือ">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="number_of_seats" class="col-sm-3 control-label">จำนวนที่นั่ง</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="number_of_seats_txt" placeholder="จำนวนที่นั่ง">
+              </div>
+            </div>
+            <!--
+            <div class="form-group">
+              <label for="fuel_type" class="col-sm-3 control-label">เชื้อเพลิง</label>
+
+              <div class="col-sm-9">
+                
+                <select class="form-control" id="fuel_type_master_txt">
+                  
+
+                  <option value="DIESEL">DIESEL</option>
+                  <option value="DIESEL10">DIESEL10</option>
+                  <option value="DIESEL20">DIESEL20</option>
+                  <option value="GASOLINE95">GASOLINE95</option>
+                  <option value="GASOHOL91">GASOHOL91</option>
+                  <option value="GASOHOL95">GASOHOL95</option>
+                  <option value="GASOHOLE20">GASOHOLE20</option>
+                  <option value="GASOHOLE85">GASOHOLE85</option>
+
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="fuel_consumption_rate" class="col-sm-3 control-label">อัตราสิ้นเปลือง</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="fuel_consumption_rate_txt" placeholder="อัตราสิ้นเปลือง">
+              </div>
+            </div>
+            -->
+
+            <div class="form-group">
+              <label for="active" class="col-sm-3 control-label">สถานะ</label>
+
+              <div class="col-sm-9">
+                <input type="checkbox" class="" checked="checked" name="active_txt" id="active_txt" >
+              </div>
+            </div>
+
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="reset" class="btn btn-default pull-right" data-dismiss="modal" aria-label="Close" style="margin-left: 5px;">ยกเลิก</button>
+            <input type="hidden" name="actionCar" id="actionCar" value="add">
+            <input type="hidden" name="idCar" id="idCar" value="">
+            <button type="button"  id='btnSubmit' class="btn btn-info pull-right">บันทึก</button>
+          </div>
+          <!-- /.box-footer -->
+        </form>
+      </div>
+        <!-- Content here.-->
+
+      </div>
+   
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- from car management-->
+
+
+<script src="js/jquery3.1.1.js"></script>
+<script type="text/javascript">
+ var jQuery_1_1_3 = $.noConflict(true);
+</script>
+<script type="text/javascript" src="./Controller/cCar.js"></script>

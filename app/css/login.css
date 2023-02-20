@@ -1,0 +1,14 @@
+
+.middle-box h1 {
+    font-size: 100px;
+}
+.logo-name {
+    color: #e6e6e6;
+    font-size: 180px;
+    font-weight: 800;
+    letter-spacing: 0px;
+    margin-bottom: 0;
+}
+.form-group-input{
+	margin-bottom: 5px;
+}

@@ -1,0 +1,48 @@
+ <!DOCTYPE HTML>
+  <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Map Location Sample | Longdo Map</title>
+        <style type="text/css">
+          html{
+            height:100%; 
+          }
+          body{ 
+            margin:0px;
+            height:100%; 
+          }
+          #map {
+            height: 100%;
+          }
+        </style>
+
+        <script type="text/javascript" src="https://api.longdo.com/map/?key=3c87f91afae9f55c975fbabd928198fd"></script>
+        <script>
+          function init() {
+            map = new longdo.Map({
+              placeholder: document.getElementById('map')
+            });
+           // map.location({ lon:100, lat:16 }, true); // go to 100, 16 when created map
+
+            var object1 = new longdo.Overlays.Object('2_', 'IG');
+            map.Overlays.load(object1); // create a Bangkok district geometry
+            // var object1 = new longdo.Overlays.Object('4_', 'IG');
+            // map.Overlays.load(object1); // create a Bangkok district geometry
+
+            var object4 = new longdo.Overlays.Object('460601', 'IG', {
+                // title: 'นนทบุรี',
+                // label: 'นนทบุรี', //ข้อความบน object
+                lineColor: '#888', //สีของเส้น
+                fillColor: '#777'  //สีพื้นหลัง
+            });
+            map.Overlays.load(object4);
+
+            var marker = new longdo.Marker({ lon: 100.56, lat: 13.74 });
+            map.Overlays.add(marker);
+          }
+        </script>
+    </head>
+    <body onload="init();">
+        <div id="map"></div>
+    </body>
+  </html>

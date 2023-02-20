@@ -1,0 +1,190 @@
+<!-- fullCalendar -->
+
+<link rel="stylesheet" href="./bower_components/fullcalendar/dist/fullcalendar.min.css">
+<link rel="stylesheet" href="./bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+
+<script src="./bower_components/moment/moment.js"></script>
+<script src="./bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+
+<div class="col-xs-12">
+	<div class="box">
+		<section class="content">
+		
+		<!-- <div class="callout callout-info">
+        <h4>สรุปข้อมูลการจอง</h4>
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      	</div> -->
+
+
+      	<div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3 class="not_approved_all_user">0</h3>
+              <p>&nbsp;</p>
+              <!-- <p>ไม่อนุมัติ</p> -->
+            </div>
+            <div class="icon">
+              <i class="fa fa-close"></i>
+            </div>
+            <div class="small-box-footer">ไม่อนุมัติการจองเรือ<!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3 class="booking_all_user">0</h3>
+              <p>&nbsp;</p>
+              <!-- <p>การจองรถทั้งหมด</p> -->
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <div class="small-box-footer">ยื่นเรื่องขอใช้รถ <!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+          </div>
+        </div>
+        <!-- ./col -->
+      
+        <!-- ./col -->
+        <!-- <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3 class="assigned_all_user">0</h3>
+
+              <p>รอมอบหมายรถและคนขับ</p>
+            </div>
+            <div class="icon">
+              <i class="fa  fa-edit"></i>
+            </div>
+            <div class="small-box-footer">รอฝ่ายธรุการมอบหมายรถและคนขับ </div>
+          </div>
+        </div> -->
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3 class="assigned_all_user">0<!-- <sup style="font-size: 20px">%</sup> --></h3>
+
+              <p>มอบหมายรถและคนขับแล้ว</p>
+            </div>
+            <div class="icon">
+              <i class="fa  fa-edit"></i>
+            </div>
+            <div class="small-box-footer">ฝ่ายธรุการมอบหมายรถและคนขับแล้ว <!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+          </div>
+        </div>
+        <!-- ./col -->
+        
+
+        <!-- ./col -->
+        <!-- <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3 class="approved_all_user">0</h3>
+
+              <p>รออนุมัติ</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-check-square-o"></i>
+            </div>
+            <div class="small-box-footer">รอผู้บังคับบัญชาอนุมัติการจอง </div>
+          </div>
+        </div> -->
+
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3 class="approved_all_user">0</h3>
+
+              <p>อนุมัติแล้ว</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-check-square-o"></i>
+            </div>
+            <div class="small-box-footer">ผู้บังคับบัญชาอนุมัติการจองรถแล้ว <!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+          </div>
+        </div>
+        
+
+      
+        
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3 class="total_chauffeur">0</h3>
+
+              <p>พลขับทั้งหมด</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <div class="small-box-footer">พลขับทั้งหมด(ขส.ทสส.ทอ.)<!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+          </div>
+        </div>
+
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3 class="chauffeur_use">0</h3>
+
+              <p>พลขับพร้อมปฎิบัติภารกิจ</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <div class="small-box-footer">พลขับที่พร้อมปฎิบัติภารกิจ <!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+          </div>
+        </div>
+
+
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3 class="total_vehicle">0</h3>
+
+              <p>รถทั้งหมด</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-car"></i>
+            </div>
+            <div class="small-box-footer">รถทั้งหมดในหน่วย ขส.ทสส.ทอ. <!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+          </div>
+        </div>
+
+        
+
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3 class="vehicle_use">0</h3>
+
+              <p>รถพร้อมปฎิบัติภารกิจ</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-car"></i>
+            </div>
+            <div class="small-box-footer">รถที่พร้อมปฎิบัติภารกิจ(ขส.ทสส.ทอ.) <!-- <i class="fa fa-arrow-circle-right"></i> --></div>
+          </div>
+        </div>
+
+      </div>
+		<div id="calendar"></div>
+		</section>
+	</div>
+</div>
+
+<script type="text/javascript" src="./Controller/cBookingCalendar.js"></script>

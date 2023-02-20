@@ -1,0 +1,200 @@
+<!-- Main content -->
+    <section class="content1">
+        
+
+
+      <!--CONTENT01-->
+      <div class="row">
+       
+      </div>
+      <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title "> 
+                <button id="addEnrollment" class="btn btn-primary pull-right" ><i class='ion ion-person-add'></i> เพิ่มผู้ใช้งาน</button>
+              </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                  <div class="col-sm-6">
+                    
+                  </div>
+              <div class="col-sm-6">
+                
+              </div>
+            </div>
+              <div class="row">
+                <div class="col-sm-12">
+                
+
+                  <table id="userDataTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>คำนำหน้า-ชื่อ-นามสกุล</th>
+                            <th>เบอร์โทร</th>
+                            <th>สิทธิ์</th>
+                            <th style="text-align: center;">จัดการ</th>
+                        </tr>
+                    </thead>
+                    <tbody id='listDataEnrollmentArea'>
+                    </tbody>
+                </table>
+
+
+
+
+
+               
+
+
+            </div>
+          </div>
+
+            </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+
+
+<!-- from user management-->
+<div class="modal fade" id="enrollmentModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">จัดการผู้ใช้งาน</h4>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Content here.-->
+        <div class="box box-info">
+       
+        <!-- /.box-header -->
+        <!-- form start -->
+       <form  class="form-horizontal "> 
+          <div class="box-body">
+        
+            <div  class="form-group">
+              <label for="emailTxt" class="col-sm-3 control-label">อีเมลล์</label>
+
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="emailTxt" placeholder="อีเมลล์">
+              </div>
+            </div>
+
+            <div  class="form-group changePasswordControlArea">
+              <label for="setChangePass" class="col-sm-3 control-label">เปลี่ยนรหัสผ่าน</label>
+              <div class="col-sm-9">
+                <input type="checkbox" checked='checked'  id="setChangePass">
+              </div>
+            </div>
+            <br style="clear: both;">
+
+            
+
+            <div  class="form-group changePasswordArea">
+              <label for="passwordTxt" class="col-sm-3 control-label ">รหัสผ่าน</label>
+
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="passwordTxt" placeholder="รหัสผ่าน">
+              </div>
+            </div>
+            <div class="form-group changePasswordArea">
+              <label for="rePasswordTxt" class="col-sm-3 control-label ">ยืนยันรหัสผ่าน</label>
+
+              <div class="col-sm-9">
+                <input type="password" class="form-control " id="rePasswordTxt" placeholder="ยืนยันรหัสผ่าน">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="titleTxt" class="col-sm-3 control-label">คำนำหน้า</label>
+
+              <div class="col-sm-9">
+               
+                <select id='titleTxt' class="form-control">
+                    <!-- <option>ร.ต.</option>
+                    <option>ร.ท.</option>
+                    <option>ร.อ.</option> -->
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fristNameTxt" class="col-sm-3 control-label">ชื่อ</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="fristNameTxt" placeholder="ชื่อ">
+              </div>
+            </div>
+             <div class="form-group">
+              <label for="lastNameTxt" class="col-sm-3 control-label">นามสกุล</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lastNameTxt" placeholder="นามสกุล">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="positionTxt" class="col-sm-3 control-label">เบอร์โทร</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="positionTxt" placeholder="เบอร์โทร">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-3 control-label">สิทธิ์การใช้งาน</label>
+
+              <div class="col-sm-9">
+                 <select id='roleText' class="form-control">
+                    <option value="1">ผู้ใช้งานทั่วไป</option>
+                    <!-- <option value="2">ผู้มอบหมายเรือและคนขับ</option>
+                    <option value="3">ผู้อนุมัติ</option> -->
+                    <option value="4">ผู้ดูแลระบบ</option>
+                </select>
+
+              </div>
+              <div class="col-sm-9">
+              <div  class="form-group changePasswordControlArea">
+                <label for="setChangePass" class="col-sm-4 control-label">Active</label>
+                <div class="col-sm-8">
+                  <input type="checkbox" checked='checked'  id="activeTxt">
+                </div>
+              </div>
+              </div>
+
+            </div>
+            
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer" >
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-label="Close" style="margin-left: 5px;">ยกเลิก</button>
+            <!-- <button type="reset" class="btn btn-default">ยกเลิก</button> -->
+            <input type="hidden" name="actionEnrollment" id="actionEnrollment" value="add">
+            <input type="hidden" name="idEnrollment" id="idEnrollment" value="">
+            <button id='btnSubmit' type="button" class="btn btn-info pull-right" >บันทึก</button>
+          </div>
+          <!-- /.box-footer -->
+        </form>
+      </div>
+        <!-- Content here.-->
+
+      </div>
+   
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- from user management-->
+
+<script type="text/javascript" src="./Controller/cEnrollment.js"></script>
+
+
+
+

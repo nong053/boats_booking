@@ -1,0 +1,725 @@
+<section class="content1">
+<!--CONTENT01-->
+
+<div class="col-xs-12">
+
+    <div class="box">
+     <!--  <div class="callout callout-info">
+        <h4><i class="fa fa-book"></i> ยืนยันการจองรถ</h4>
+       สิทธิ์ฝ่ายธุรการมีหน้าที่มอบหมายรถและคนขับเพื่อส่งเรื่องให้ผูบังคับบัญชาอนุมัติต่อไป้ โดยมีสถานะการจองดังนี้<br>
+        1 <span  style='padding:7px;  color:white;'  class='bg-blue btn-sm'><i class='fa fa-circle'></i> Booking</span> สีน้ำเงินหมายถึงการจองรถ<br>
+        2 <span style="padding:7px; color:white; background-color:#d58512;" class="btn-sm"><i class="fa fa-clone"></i> Assigned</span> สีส้มหมายถึงฝ่ายธรุการทำการมอบหมายรถและคนขับให้เรียบร้อยแล้ว<br>
+        3 <span style="padding:7px; color:white; background-color:#00a65a" class="btn-sm"><i class="fa fa-check-square"></i> Approved</span> สีเขียวหมายถึงผู้บังคับบัญชาอนุมัติการจองรถเรียบร้อยแล้ว
+      </div> -->
+
+     
+      <!-- /.box-header -->
+
+      <!-- search start -->
+            <div class="callout callout-info" style="margin: 0px;">
+              <div class="row">
+                  <div class="col-sm-3">
+
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-5 control-label" style="text-align: right; padding-top:5px;">เดือน</label>
+
+                        <div class="col-sm-7">
+                          <select id="param_month"class="form-control">
+                            <option value="00">ทุกเดือน</option>
+                            <option value="01">มกราคม</option>
+                            <option value="02">กุมภาพันธ์</option>
+                            <option value="03">มีนาคม</option>
+                            <option value="04">เมษายน</option>
+                            <option value="05">พฤษภาคม</option>
+                            <option value="06">มิถุนายน</option>
+                            <option value="07">กรกฎาคม</option>
+                            <option value="08">สิงหาคม</option>
+                            <option value="09">กันยายน</option>
+                            <option value="10">ตุลาคม</option>
+                            <option value="11">พฤศจิกายน</option>
+                            <option value="12">ธันวาคม</option>
+                          </select>
+                        </div>
+                      </div>
+
+                  </div>
+                  <div class="col-sm-3">
+
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-5 control-label" style="text-align: right; padding-top:5px;">พ.ศ. </label>
+
+                        <div class="col-sm-7">
+                           <select id="param_year" class="form-control">
+                           
+                          </select>
+                        </div>
+                      </div>
+
+                  </div>
+
+                  <div class="col-sm-5">
+                    <button id="btn_search" class="btn btn-primary"><i class="fa fa-search"></i> ค้นหา</button>
+                  </div>
+               </div>
+           </div>
+           <!-- search -->
+
+      <div class="box-body">
+        <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+          
+        <div class="row">
+          <div class="col-sm-12">
+          <table id="tableConfirmDataList" class="table table-striped table-bordered hover">
+          <thead>
+          <tr role="row">
+            <th >#
+            </th>
+            <th>
+              </th>
+            <th >วันเวลาใช้รถ
+            </th>
+            <th >รายละเอียด
+            </th>
+             <th style="text-align: right;">
+            </th>
+          </tr>
+          </thead>
+          <tbody id='listDataConfirmBookingArea'>
+          
+
+          </tbody>
+
+        </table></div></div>
+      </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+
+
+
+
+<!-- from booking  management-->
+<div class="modal fade" id="ConfirmBookingModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">มอบหมายรถ,พลขับ</h4>
+        <small><font color="red">*</font> คือจำเป็นต้องกรอก</small>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Content here.-->
+
+
+                
+
+                <div style="display: none;" class="alertNotConfirmStatus alert alert-warning alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h4><i class="icon fa fa-warning"></i> สถานะ!</h4>
+                  <span class="alertNotConfirmStatusTxt">ยังไม่ยืนยันการจอง <span class='alertNotConfirmStatusTxt2'></span></span>
+
+                </div>
+
+                <div style="display: none;" class="alertConfirmSuccessStatus alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h4><i class="icon fa fa-warning"></i> สถานะ!</h4>
+                  <span class="alertConfirmStatusSuccessTxt">ยืนยันการจองรถเรียบร้อย</span>
+                </div>
+
+                <div style="display: none;" class="alertFromServer alert alert-warning alert-dismissible">
+                 <!--  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h4><i class="icon fa fa-warning"></i> Alert!</h4> -->
+                  <span class="alertFromServerTxt"></span>
+                </div>
+         
+    
+       
+              <!-- Horizontal Form -->
+              <div class="box box-info" >
+                <div class="box-header with-border">
+                  <!-- <h3 class="box-title">ฟอร์มข้อมูลการจองรถ</h3> -->
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="box-body" >
+
+                    <div class="callout callout-info" style="padding-top: 30px;">
+                      <h2 class="page-header">
+                       <!--  <i class="fa fa-user"></i> --> มอบหมายรถและพลขับ
+                        <!-- <small class="pull-right">วันที่ขอใช้รถ: 2/10/2014</small> -->
+                      </h2>
+                    <div class="row">
+                        
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="inputEmail3" class="col-sm-4 control-label"><font color="red">*</font> เลือกรถ</label>
+
+                              <div class="col-sm-8">
+                                <select id='vehicle_select_area' class="form-control">
+                                 
+                                </select>
+                              </div>
+                            </div>
+
+                        </div>
+                         <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="inputEmail3" class="col-sm-4 control-label"><font color="red">*</font> พลขับรถ</label>
+
+                              <div class="col-sm-8">
+                                
+                                <select id="chauffeur_select_area" class="form-control">
+                                  
+                                </select>
+                              </div>
+                            </div>
+
+                        </div>
+                      
+                     </div>
+
+
+                     <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="inputEmail3" class="col-sm-4 control-label">ผู้คุมรถ</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="vehicle_operator" placeholder="ผู้คุมรถ">
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                              <label for="inputEmail3" class="col-sm-4 control-label">ตำแหน่ง</label>
+
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="operator_position" placeholder="ตำแหน่ง">
+                              </div>
+                            </div>
+
+                        </div>
+                      </div>
+
+                       
+
+
+
+                     <div class="row no-print">
+                      <div class="col-xs-12">
+                        <!-- <button type="button" id='btnPrint' class="btn btn-warning"><i class="fa fa-print"></i> Print</button> -->
+                        <input type="hidden" class="class_booking_id"  id="booking_id" >
+                        <!-- <button type="button" id='btnbtnChauffeurAndVehicleAddReset' class="btn btn-primary pull-right>
+                           <i class="fa fa-download"></i> ยกเลิก
+                        </button> -->
+                        <button type="button" id='btnChauffeurAndVehicleAdd' style="margin-left: 5px;" class="btn btn-success pull-right"><i class=""></i> บันทึก
+                        </button>
+                        
+                      </div>
+                    </div>
+                   </div>
+                   </div>
+                  <!-- /.box-body -->
+                  <!-- /.box-footer -->
+                </form>
+
+                
+
+              </div>
+              <!-- /.box -->
+              <!-- general form elements disabled -->
+
+
+
+
+ <section class="invoice">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="page-header">
+        <i class="fa fa-user"></i> ข้อมูลรถและพลขับ
+        <!-- <small class="pull-right">วันที่ขอใช้รถ: 2/10/2014</small> -->
+      </h2>
+    </div>
+    <!-- /.col -->
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>รถ</th>
+          <th>พลขับ</th>
+          <th>เลขที่ใบขับขี่</th>
+          <th>ผู้คุมรถ</th>
+          <!-- <th>ตำแหน่งผู้คุมรถ</th> -->
+          <th style="text-align: right;">จัดการ</th>
+        </tr>
+      </thead>
+      <tbody id='listChauffeurAndVehicleArea'>
+        
+      </tbody>
+    </table>
+ </section>
+
+ <!-- /.row -->
+
+ <form class="form-horizontal">
+
+        
+
+        <div class="box-body">
+
+          <div style="display: none;" class="alertAttachFromServer alert alert-warning alert-dismissible">
+            <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> -->
+            <!-- <h4><i class="icon fa fa-warning"></i> Alert!</h4> -->
+            
+            <span class="alertAttachFromServerTxt"></span>
+          </div>
+
+
+          <div class="callout callout-info" style="padding-top: 30px;">
+            
+
+
+           
+
+              <h2 class="page-header">
+                <!-- <i class="fa fa-user"></i> --> เชื้อเพลิง
+                <!-- <small class="pull-right">วันที่ขอใช้รถ: 2/10/2014</small> -->
+              </h2>
+              <div class="row">
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label"><font color="red">*</font> เลือกรถ</label>
+                    <div class="col-sm-8">
+                      <select id='cv_selected_area' class="form-control">
+                      </select>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="fuel_type" class="col-sm-4 control-label">ชนิดเชื้อเพลิง</label>
+                    <div class="col-sm-8 ">
+                      <select class="form-control" id="fuel_type" disabled="disabled">
+                          <option value="DIESEL">DIESEL</option>
+                          <option value="DIESEL10">DIESEL10</option>
+                          <option value="DIESEL20">DIESEL20</option>
+                          <option value="GASOLINE95">GASOLINE95</option>
+                          <option value="GASOHOL91">GASOHOL91</option>
+                          <option value="GASOHOL95">GASOHOL95</option>
+                          <option value="GASOHOLE20">GASOHOLE20</option>
+                          <option value="GASOHOLE85">GASOHOLE85</option>
+                      </select>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                 <div class="form-group">
+                    <label for="fuel_attach_file" class="col-sm-4 control-label"><font color="red">*</font> บัตรจ่ายน้ำมัน</label>
+
+                    <div class="col-sm-8">
+                      <input type="file" class="form-control" id="fuel_attach_file_txt">
+                    </div>
+                  </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="fuel_consumption_rate" class="col-sm-4 control-label">อัตราสิ้นเปลือง</label>
+
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" id="fuel_consumption_rate_txt" disabled="disabled" placeholder="อัตราสิ้นเปลืองน้ำมัน">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="fuel_lite" class="col-sm-4 control-label"><font color="red">*</font> จำนวน(ลิตร)</label>
+
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" id="fuel_amount" placeholder="จำนวน(ลิตร)">
+                      </div>
+                  </div>
+              </div>
+            </div>
+           
+
+
+
+           <div class="row no-print">
+            <div class="col-xs-12">
+              <!-- <button type="button" id='btnPrint' class="btn btn-warning"><i class="fa fa-print"></i> Print</button> -->
+              
+              <!-- <button type="button" id='btnbtnChauffeurAndVehicleAddReset' class="btn btn-primary pull-right>
+                 <i class="fa fa-download"></i> ยกเลิก
+              </button> -->
+              <button type="button" id="btnAttachFile" style="margin-left: 5px;" class="btn btn-success pull-right"><i class=""></i> บันทึก
+              </button>
+              
+            </div>
+          </div>
+         </div>
+         </div>
+        <!-- /.box-body -->
+        <!-- /.box-footer -->
+      </form>
+
+     
+
+
+
+      <section class="invoice">
+        <h2 class="page-header">
+        <i class="fa fa-battery-three-quarters"></i> ข้อมูลเชื้อเพลิง
+        
+      </h2>
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th >#</th>
+              <th>รถ</th>
+              <th>ชนิดเชื้อเพลิง</th>
+               <th style="text-align: right;">จำนวน/ลิตร</th>
+              <th style="text-align: right;">ดาวน์โหลด</th>
+             
+            </tr>
+            </thead>
+            <tbody id='list_attach_file_area'>
+           
+
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+    </section>
+      <!-- /.row -->
+
+
+ <section class="invoice">
+
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-car"></i> ข้อมูลการจองรถ
+            <small class="pull-right">วันที่ขอใช้รถ: <span id='createBookingDate'></span></small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+             <b>ชื่อผู้ขอใช้รถ:</b> <span id='fullname_txt'></span><br>
+             <b>ตำแหน่ง:</b> <span id='position_txt'></span><br>
+            <address>
+              <strong>วัตถุประสงค์:</strong><br>
+              <span id='purpose_txt'></span>
+              
+             
+            </address>
+
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+            
+           
+            <b>จาก:</b> <span id='from_txt'></span><br>
+            <b>ผู้โดยสาร:</b> <span id='number_of_people_txt'></span> คน<br>
+            <b>ให้นำรถไปรับที่:</b><span id='near_place_txt'></span><br>
+            <b>เดินทางวันที่:</b> <span id='date_from_txt'></span><br>
+            <b>กลับวันที่:</b> <span id='date_to_txt'></span><br>
+            <!-- <b>ชนิดเชื้อเพลิง:</b> <span id='fuel_type_txt'></span><br> -->
+           
+           
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          
+          
+          <b>ถึง:</b> <span id='to_txt'></span><br>
+          <b>น้ำหนักสิ่งของ:</b> <span id='baggage_weight_txt'></span> กิโลกรัม<br>
+          <b>ใกล้กับ:</b><span id='at_the_place_txt'></span><br>
+          <b>เวลา:</b> <span id='time_from_txt'></span><br>
+          <b>เวลา:</b> <span id='time_to_txt'></span><br>
+          <!-- <b>จำนวน/ลิตร:</b> <span id='fuel_lite_txt'></span><br> -->
+          
+        </div>
+        <!-- /.col -->
+      </div>
+      
+
+      
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div style="">
+      <hr>
+      <b>หมายเหตุ(ส่งข้อความถึงผู้จอง)</b>
+      <div >
+
+          <textarea class="form-control" id="booking_status_reason" placeholder="ข้อความส่งถึงผู้จองรถ"></textarea>
+      </div>
+      <b>หมายเหตุ(ส่งข้อความถึงผู้บังคับบัญชา)</b>
+      <div >
+
+          <textarea class="form-control" id="approved_status_reason" placeholder="ข้อความส่งถึงผู้บังคับบัญชา"></textarea>
+      </div>
+    </div>
+    <div class="box-footer " style="text-align: right;">
+
+          
+
+          <button type="button"  style="margin-left: 5px;" id='btnSendToBookingDraft'  class=" btn btn-warning "> <i class="fa fa-fw fa-angle-double-left"></i> ส่งกลับให้ผู้จองรถแก้ไข
+          </button>
+
+          <button type="button"  style="margin-left: 5px;" id='btnConfirmBooking'  class=" btn btn-success "> <i class="fa fa-fw fa-angle-double-right"></i> ส่งให้ผู้บังคับบัญชาอนุมัติ
+          </button>
+          <!-- 
+          <button type="button"  style="margin-left: 5px;" id='btnConfirmBooking'  class=" btn btn-info "><i class="fa fa-fw fa-save"></i> บันทึก
+          </button> -->
+          <button type="button" id='btnbtnChauffeurAndVehicleAddReset' class="btn btn-primary " data-dismiss="modal" aria-label="Close">
+             ปิด
+          </button>
+          
+     </div> 
+    </section>
+
+    
+             
+
+        <!-- Content here.-->
+
+      </div>
+   
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- from booking management-->
+
+
+
+
+
+
+<!-- from approve  management-->
+<div class="modal fade" id="ApprovedBookingModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">สรุปข้อมูลการจองรถ</h4>
+      </div>
+      <div class="modal-body summary-form">
+        
+        <!-- Content here.-->
+
+
+       
+         
+              <div style="display: none;" class="alertDangerFromServer alert alert-danger alert-dismissible">
+                 <!--  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h4><i class="icon fa fa-warning"></i> Alert!</h4> -->
+                  <span class="alertDangerFromServerTxt"></span>
+                </div>
+       
+              <!-- Horizontal Form -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <!-- <h3 class="box-title">ฟอร์มข้อมูลการจองรถ</h3> -->
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="box-body">
+
+                    
+
+
+<section class="invoice">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="page-header">
+        <i class="fa fa-user"></i> ข้อมูลรถและพลขับ
+        
+      </h2>
+    </div>
+    <!-- /.col -->
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>รถ</th>
+          <th>พนักงานขับรถ</th>
+          <th>เลขที่ใบขับขี่</th>
+          <th>ผู้คุมรถ</th>
+          <!-- <th>ตำแหน่งผู้คุมรถ</th> -->
+          <!-- <th style="text-align: right;">จัดการ</th> -->
+        </tr>
+      </thead>
+      <tbody id='listChauffeurAndVehicleArea'>
+        
+      </tbody>
+    </table>
+ </section>
+
+
+ <!-- /.row -->
+     
+      <section class="invoice">
+        <h2 class="page-header">
+        <i class="fa fa-battery-three-quarters"></i> ข้อมูลเชื้อเพลิง
+        
+      </h2>
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th >#</th>
+              <th>รถ</th>
+              <th>ชนิดเชื้อเพลิง</th>
+               <th style="text-align: right;">จำนวน/ลิตร</th>
+              <th style="text-align: right;">ดาวน์โหลด</th>
+             
+            </tr>
+            </thead>
+            <tbody id='list_attach_file_area'>
+           
+
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+    </section>
+      <!-- /.row -->
+
+ <section class="invoice">
+      
+
+
+
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-car"></i> ข้อมูลการจองรถ
+            <small class="pull-right">วันที่ขอใช้รถ: <span id='createBookingDate'></span></small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+             <b>ชื่อผู้ขอใช้รถ:</b> <span id='fullname_txt_summary'></span><br>
+            <address>
+              <strong>วัตถุประสงค์:</strong><br>
+              <span id='purpose_txt_summary'></span>
+              
+             
+            </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+            <b>ตำแหน่ง:</b> <span id='position_txt_summary'></span><br>
+           
+            <b>จาก:</b> <span id='from_txt_summary'></span><br>
+            <b>ผู้โดยสาร:</b> <span id='number_of_people_txt_summary'></span> คน<br>
+            <b>ให้นำรถไปรับที่:</b><span id='near_place_txt_summary'></span><br>
+            <b>เดินทางวันที่:</b> <span id='date_from_txt_summary'></span><br>
+            <b>กลับวันที่:</b> <span id='date_to_txt_summary'></span><br>
+           
+           
+           
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          <!-- <b>Invoice #007612</b> --><br>
+          
+          <b>ถึง:</b> <span id='to_txt_summary'></span><br>
+          <b>น้ำหนักสิ่งของ:</b> <span id='baggage_weight_txt_summary'></span> กิโลกรัม<br>
+          <b>ใกล้กับ:</b><span id='at_the_place_txt_summary'></span><br>
+          <b>เวลา:</b> <span id='time_from_txt_summary'></span><br>
+          <b>เวลา:</b> <span id='time_to_txt_summary'></span><br>
+         
+          
+        </div>
+        <!-- /.col -->
+      </div>
+
+      
+
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+          <!-- <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a> -->
+          <!-- <button type="button" id='btnSubmit' class="btn btn-success pull-right"> บันทึก
+          </button> -->
+         
+          <!-- <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+            <i class="fa fa-download"></i> ยกเลิก
+          </button> -->
+        </div>
+      </div>
+    </section>
+
+    
+             
+
+        <!-- Content here.-->
+
+      </div>
+   
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+    </section>
+             
+
+        <!-- Content here.-->
+
+      </div>
+   
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- from approve management-->
+
+
+<script src="js/jquery3.1.1.js"></script>
+<script type="text/javascript">
+ var jQuery_1_1_3 = $.noConflict(true);
+</script>
+<script type="text/javascript" src="./Controller/cConfirmBooking.js"></script>
